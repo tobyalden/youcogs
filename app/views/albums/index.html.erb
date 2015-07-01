@@ -2,6 +2,9 @@
 
 <ul>
   <% @albums.each do |album| %>
-    <li> <%= album.properties['title'] %> </li>
+    <li>
+      <%= link_to album.properties['title'], album_path(album.discogs_id) %>
+      <div> <img src="<%= album.properties["thumb"]%>"> </div>
+    </li>
   <% end %>
 </ul>

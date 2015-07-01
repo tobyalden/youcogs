@@ -4,14 +4,17 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    # eventually this will check to see if the given ID is already in the database
-    @album = Album.new(params['id'])
-    @album.populate_properties
+    result = Album.where(discogs_id: params['id']).first
+    if result
+      @album = result
+    else
+      @album = Album.new(discogs_id: params['id'])
+      @album.populate_properties
+    end
   end
 
   def create
-    binding.pry
-    @album = Album.new(params['album']['discogs_id'])
+    @album = Album.new(discogs_id: params['album']['discogs_id'])
     @album.populate_properties
     @album.save
     redirect_to albums_path
