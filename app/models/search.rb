@@ -20,4 +20,8 @@ class Search
     end
   end
 
+
+  def self.wrapper
+    @@wrapper
+  end
 end

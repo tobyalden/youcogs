@@ -2,11 +2,10 @@
 
 <ul>
   <% @search.results.each do |result| %>
-    <li> <%= result['title'] %>
-      <div>
-         <img src="<%= result["thumb"]%>" >
-       </div>
-       <hr>
+    <li>
+      <%= link_to result['title'], album_path(result['id']) %>
+      <div> <img src="<%= result["thumb"]%>" > </div>
+      <hr>
     </li>
   <% end %>
 </ul>

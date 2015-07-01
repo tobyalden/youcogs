@@ -1,0 +1,14 @@
+<h1><%= @album.properties['title'] %> by <%= @album.properties['artists_formatted'] %> (<%= @album.properties['year'] %>)</h1>
+
+<img src="<%= @album.properties['images'].first["resource_url"]%>">
+
+<table>
+  <td>Track number</td><td>Title</td><td>Duration</td>
+  <% @album.properties['tracklist'].each do |track|%>
+  <tr>
+    <td><%= track["position"]%></td><td><%= track["title"]%></td><td><%= track["duration"]%></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= link_to "Save album to collection", albums_path(album: {discogs_id: @album.discogs_id}), method: "post" %>
