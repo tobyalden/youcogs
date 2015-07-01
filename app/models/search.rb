@@ -13,6 +13,11 @@ class Search
 
   def populate_results
     @results = @@wrapper.search(@keyword, :type => :release).results;
+    @results.each do |result|
+      if(result['thumb'] == "")
+        result['thumb'] = "http://i.imgur.com/rj3Qh9i.png";
+      end
+    end
   end
 
 end

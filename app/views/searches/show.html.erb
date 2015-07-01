@@ -2,6 +2,11 @@
 
 <ul>
   <% @search.results.each do |result| %>
-    <li> <%= result['title'] %> </li>
+    <li> <%= result['title'] %>
+      <div>
+         <img src="<%= result["thumb"]%>" >
+       </div>
+       <hr>
+    </li>
   <% end %>
 </ul>
