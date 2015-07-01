@@ -1,0 +1,9 @@
+<h1>YouCogs</h1>
+
+<%= form_tag search_path(1), :method => "get" do%>
+  <div>
+    <%= label_tag :keyword, "Search for:"%>
+    <%= text_field_tag :keyword%>
+  </div>
+  <%= submit_tag("Search")%>
+<% end %>

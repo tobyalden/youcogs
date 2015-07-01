@@ -1,0 +1,7 @@
+<h2>Search Results:</h2>
+
+<ul>
+  <% @search.results.each do |result| %>
+    <li> <%= result['title'] %> </li>
+  <% end %>
+</ul>
